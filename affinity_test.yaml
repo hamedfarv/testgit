@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ramindeploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      shabihe: ramin
+  template:
+    metadata:
+      labels:
+        shabihe: ramin
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: ramincontainer
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: color
+                operator: In
+                values:
+                - blue

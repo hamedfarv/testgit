@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-mojtaba
+  labels:
+    app: test-mojtaba
+spec:
+  containers:
+  -  image: dblearn/python-mojtaba
+     name: container-mojtaba
